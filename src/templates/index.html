@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  
+}
+
+.odd {
+      background: #5a95ee;
+}
+.even{
+  background: #7eb9e0;
+}
+
+</style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Raspored casova by: Marijana Ristic S27/19</h2>
+
+<input id="myInput" type="text" placeholder="Search.." style="float: right; width: 500px;" value="">
+<br><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Predmet</th>
+    <th>Tip</th>
+	<th>Nastavnik</th>
+	<th>Grupe</th>
+	<th>Dan</th>
+	<th>Termin</th>
+	<th>Ucionica</th>
+  </tr>
+  
+  </thead>
+{% for raspored in rasporedi %}
+  <tbody id="myTable">
+
+  <tr class="{{ loop.cycle('odd', 'even') }}">
+	  
+	<td > {{raspored['predmet']}}</td>
+    <td>{{raspored['tip']}}</td>
+	<td >{{raspored['nastavnik']}}</td>
+	<td>{{raspored['grupe']}}</td>
+	<td>{{raspored['dan']}}</td>
+	<td>{{raspored['termin']}}</td>
+	<td>{{raspored['ucionica']}}</td>
+  </tr>
+ 
+  </tbody>
+  {% endfor %}
+
+
+   
+</table>
+
+
+<br> <br>
+
+
+
+  <table style="width: 400px;" style="margin:0 auto;">
+    <thead>
+    <tr >
+     
+      <th>Nastavnik</th>
+      <th>Ucionica</th>
+    </tr>
+    
+    </thead>
+   
+    <tbody>
+    
+      <tr>
+        <td id="prvi"><a href="#"> Seslija Ognjen </a></td>
+        <td id="ucionica_raf_2"><a href="#">Raf 2</a></td>
+      </tr>
+
+      <tr>
+        <td id="jerotijevic"><a href="#">Jerotijevic Marija</a></td>
+        <td id="atelje_dva"><a href="#">Raf Atelje 2 </a></td>
+      </tr>
+     
+
+      <tr>
+        <td id="prusevic"><a href="#">Prusevic Dulic Mersiha</a></td>
+        <td id="raf_j"><a href="#">Raf 11 </a></td>
+      </tr>
+
+      
+      <tr>
+        <td id="jovanovic"><a href="#">Jovanovic Irena</a></td>
+        <td id="raf_atelje"><a href="#">Raf Atelje </a></td>
+      </tr>
+
+      <tr>
+        <td id="cuk"><a href="#">Cuk Bojana</a></td>
+        <td id="raf_cetiri"><a href="#">Raf 4 </a></td>
+      </tr>
+
+      <tr>
+        <td id="mijatovic"><a href="#">Mijatovic Igor</a></td>
+      
+      </tr>
+
+      <tr>
+        <td id="rankovic"><a href="#">Rankovic Dragica</a></td>
+      
+      </tr>
+    </tbody>
+
+
+<script>
+
+
+$(document).on("click", "#prvi", function(){
+
+  var rows = $("#myTable tr").hide();
+  rows.filter(":contains('Ognjen')").show();
+
+});
+
+
+$(document).on("click", "#ucionica_raf_2", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('Raf 2')").show();
+
+});
+
+$(document).on("click", "#jerotijevic", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('Jerotijevic Marija')").show();
+
+});
+
+
+
+$(document).on("click", "#atelje_dva", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('Raf Atelje 2')").show();
+
+});
+
+$(document).on("click", "#prusevic", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('Prusevic')").show();
+
+});
+
+
+$(document).on("click", "#raf_j", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('Raf 11')").show();
+
+});
+
+$(document).on("click", "#jovanovic", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('Jovanovic')").show();
+
+});
+
+
+$(document).on("click", "#raf_atelje", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('RafAtelje')").show();
+
+});
+
+
+$(document).on("click", "#cuk", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('Cuk Bojana')").show();
+
+});
+
+$(document).on("click", "#raf_cetiri", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('Raf 4')").show();
+
+});
+
+
+$(document).on("click", "#mijatovic", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('Mijatovic Igor')").show();
+
+});
+
+$(document).on("click", "#rankovic", function(){
+
+var rows = $("#myTable tr").hide();
+rows.filter(":contains('Rankovic Dragica')").show();
+
+});
+</script>
+
+</body>
+
+
+
+
+
+</html>
